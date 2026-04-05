@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HQ8NAh7AywQ=",
+  "dgSpecHash": "d4hwjaIGkpU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\HUYEN\\Desktop\\WEB\\SV22T1020161\\SV22T1020161.DataLayers\\SV22T1020161.DataLayers.csproj",
+  "projectFilePath": "C:\\Users\\HUYEN\\Desktop\\WEB\\SV22T1020161\\Librarys\\SV22T1020161.DataLayers\\SV22T1020161.DataLayers.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HUYEN\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
     "C:\\Users\\HUYEN\\.nuget\\packages\\azure.identity\\1.17.1\\azure.identity.1.17.1.nupkg.sha512",

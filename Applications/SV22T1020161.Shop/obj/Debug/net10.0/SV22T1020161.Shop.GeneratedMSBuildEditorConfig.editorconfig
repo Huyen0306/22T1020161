@@ -11,85 +11,85 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SV22T1020161.Shop
 build_property.RootNamespace = SV22T1020161.Shop
-build_property.ProjectDir = C:\Users\HUYEN\Desktop\WEB\SV22T1020161\SV22T1020161.Shop\
+build_property.ProjectDir = C:\Users\HUYEN\Desktop\WEB\SV22T1020161\Applications\SV22T1020161.Shop\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\HUYEN\Desktop\WEB\SV22T1020161\SV22T1020161.Shop
+build_property.MSBuildProjectDirectory = C:\Users\HUYEN\Desktop\WEB\SV22T1020161\Applications\SV22T1020161.Shop
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Account/Login.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Account/Profile.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Account/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Account/Register.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Cart/Checkout.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Cart/Checkout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDaGVja291dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Cart/Index.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Cart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Home/Index.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Home/Privacy.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Order/History.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Order/History.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSGlzdG9yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Order/Status.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Order/Status.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcU3RhdHVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Product/Detail.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Product/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Product/Index.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Product/Search.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Product/Search.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxTZWFyY2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Shared/Error.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Shared/_ProductGrid.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Shared/_ProductGrid.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Qcm9kdWN0R3JpZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/_ViewImports.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/_ViewStart.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/SV22T1020161.Shop/Views/Shared/_Layout.cshtml]
+[C:/Users/HUYEN/Desktop/WEB/SV22T1020161/Applications/SV22T1020161.Shop/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-zxj2hms0dn

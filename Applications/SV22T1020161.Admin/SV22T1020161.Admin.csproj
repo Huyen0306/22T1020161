@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SV22T1020161.Models\SV22T1020161.Models.csproj" />
-    <ProjectReference Include="..\SV22T1020161.DataLayers\SV22T1020161.DataLayers.csproj" />
-    <ProjectReference Include="..\SV22T1020161.BusinessLayers\SV22T1020161.BusinessLayers.csproj" />
+    <ProjectReference Include="..\..\Librarys\SV22T1020161.Models\SV22T1020161.Models.csproj" />
+    <ProjectReference Include="..\..\Librarys\SV22T1020161.DataLayers\SV22T1020161.DataLayers.csproj" />
+    <ProjectReference Include="..\..\Librarys\SV22T1020161.BusinessLayers\SV22T1020161.BusinessLayers.csproj" />
   </ItemGroup>
 
   <ItemGroup>
