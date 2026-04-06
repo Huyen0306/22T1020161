@@ -163,6 +163,7 @@ namespace SV22T1020161.Admin.Controllers
             }
             else
             {
+                // UpdateAsync không ghi đè RoleNames — phân quyền dùng ChangeRole riêng
                 bool ok = await HRDataService.UpdateEmployeeAsync(data);
                 if (!ok)
                 {

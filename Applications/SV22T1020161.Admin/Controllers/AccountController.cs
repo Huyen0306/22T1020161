@@ -256,9 +256,18 @@ public class AccountController : Controller
             return View(employee);
         }
 
+        // Reload lại từ DB để đảm bảo RoleNames luôn chính xác
+        var updatedEmployee = await HRDataService.GetEmployeeAsync(employee.EmployeeID);
+        if (updatedEmployee == null)
+            return RedirectToAction("Login");
+
+        // Đảm bảo Photo được giữ nguyên (vì UpdateAsync không thay đổi Photo nếu không upload)
+        if (!string.IsNullOrEmpty(employee.Photo))
+            updatedEmployee.Photo = employee.Photo;
+
         // Cập nhật session
-        HttpContext.Session.SetString("EmployeeName", employee.FullName);
-        HttpContext.Session.SetString("EmployeeEmail", employee.Email);
+        HttpContext.Session.SetString("EmployeeName", updatedEmployee.FullName);
+        HttpContext.Session.SetString("EmployeeEmail", updatedEmployee.Email);
 
         // Cập nhật lại authentication cookie
         await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
@@ -266,9 +275,9 @@ public class AccountController : Controller
         // Standardize role names giống như Login action
         var standardizedRoles = new List<string>();
         var permissions = new List<string>();
-        if (!string.IsNullOrWhiteSpace(employee.RoleNames))
+        if (!string.IsNullOrWhiteSpace(updatedEmployee.RoleNames))
         {
-            var dbRoles = employee.RoleNames.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+            var dbRoles = updatedEmployee.RoleNames.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
             foreach (var dbRole in dbRoles)
             {
                 var standardizedRole = Roles.RolePermissions.Keys.FirstOrDefault(k => k.Equals(dbRole, StringComparison.OrdinalIgnoreCase));
@@ -287,13 +296,13 @@ public class AccountController : Controller
 
         var newClaims = new List<Claim>
         {
-            new Claim(ClaimTypes.NameIdentifier, employee.EmployeeID.ToString()),
-            new Claim(ClaimTypes.Email, employee.Email),
-            new Claim(ClaimTypes.Name, employee.FullName),
-            new Claim("Photo", employee.Photo ?? ""),
-            new Claim("UserId", employee.EmployeeID.ToString()),
-            new Claim("UserName", employee.Email),
-            new Claim("DisplayName", employee.FullName),
+            new Claim(ClaimTypes.NameIdentifier, updatedEmployee.EmployeeID.ToString()),
+            new Claim(ClaimTypes.Email, updatedEmployee.Email),
+            new Claim(ClaimTypes.Name, updatedEmployee.FullName),
+            new Claim("Photo", updatedEmployee.Photo ?? ""),
+            new Claim("UserId", updatedEmployee.EmployeeID.ToString()),
+            new Claim("UserName", updatedEmployee.Email),
+            new Claim("DisplayName", updatedEmployee.FullName),
         };
         foreach (var role in standardizedRoles)
             newClaims.Add(new Claim(ClaimTypes.Role, role));

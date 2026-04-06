@@ -157,6 +157,8 @@ namespace SV22T1020161.DataLayers.SqlServer
         {
             using (var connection = GetConnection())
             {
+                // KHÔNG update RoleNames ở đây để tránh vô tình xóa role của nhân viên.
+                // Việc thay đổi role phải dùng UpdateRoleNamesAsync riêng biệt.
                 var sql = @"UPDATE Employees 
                             SET FullName = @FullName, 
                                 BirthDate = @BirthDate, 
@@ -164,8 +166,7 @@ namespace SV22T1020161.DataLayers.SqlServer
                                 Phone = @Phone, 
                                 Email = @Email, 
                                 Photo = @Photo, 
-                                IsWorking = @IsWorking, 
-                                RoleNames = @RoleNames
+                                IsWorking = @IsWorking
                             WHERE EmployeeID = @EmployeeID";
                 var parameters = new
                 {
@@ -176,7 +177,6 @@ namespace SV22T1020161.DataLayers.SqlServer
                     data.Email,
                     data.Photo,
                     data.IsWorking,
-                    data.RoleNames,
                     data.EmployeeID
                 };
                 var rowsAffected = await connection.ExecuteAsync(sql, parameters);
