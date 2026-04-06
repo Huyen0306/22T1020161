@@ -2,10 +2,8 @@ using SV22T1020161.Admin;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Globalization;
 using SV22T1020161.Models.Constants;
-using SV22T1020161.Admin.AppCodes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection;
-using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 

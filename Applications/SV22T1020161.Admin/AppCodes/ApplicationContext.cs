@@ -1,4 +1,7 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using SV22T1020161.Models.Constants;
 using SV22T1020161.Models.Security;
 
 namespace SV22T1020161.Admin
@@ -148,6 +151,119 @@ namespace SV22T1020161.Admin
         public static bool HasRole(string role)
         {
             return CurrentUser?.HasRole(role) ?? false;
+        }
+    }
+}
+
+namespace SV22T1020161.Admin
+{
+    /// <summary>
+    /// Requirement cho kiểm tra quyền: user cần có ÍT NHẤT MỘT trong danh sách permissions (OR logic)
+    /// </summary>
+    public class PermissionRequirement : IAuthorizationRequirement
+    {
+        public IReadOnlyList<string> Permissions { get; }
+        public PermissionRequirement(params string[] permissions)
+        {
+            Permissions = permissions.ToList().AsReadOnly();
+        }
+    }
+
+    /// <summary>
+    /// Handler kiểm tra quyền: user cần có ÍT NHẤT MỘT permission trong danh sách
+    /// </summary>
+    public class PermissionHandler : AuthorizationHandler<PermissionRequirement>
+    {
+        protected override Task HandleRequirementAsync(
+            AuthorizationHandlerContext context,
+            PermissionRequirement requirement)
+        {
+            foreach (var perm in requirement.Permissions)
+            {
+                if (context.User.HasClaim("Permission", perm))
+                {
+                    context.Succeed(requirement);
+                    return Task.CompletedTask;
+                }
+            }
+            return Task.CompletedTask;
+        }
+    }
+
+    /// <summary>
+    /// Attribute yêu cầu user có ÍT NHẤT MỘT permission trong danh sách (OR logic).
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
+    public class AuthorizePermissionAttribute : AuthorizeAttribute
+    {
+        public AuthorizePermissionAttribute(params string[] permissions)
+        {
+            var sortedPerms = permissions.OrderBy(p => p).ToList();
+            var combinedKey = string.Join("_", sortedPerms).Replace(":", "_");
+            Policy = "Permission_" + combinedKey;
+        }
+    }
+
+    /// <summary>
+    /// Attribute yêu cầu user phải có TẤT CẢ permissions trong danh sách (AND logic).
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
+    public class AuthorizeAllPermissionsAttribute : AuthorizeAttribute
+    {
+        public AuthorizeAllPermissionsAttribute(params string[] permissions)
+        {
+            var sortedPerms = permissions.OrderBy(p => p).ToList();
+            var combinedKey = string.Join("_", sortedPerms).Replace(":", "_");
+            Policy = "AllPermissions_" + combinedKey;
+        }
+    }
+
+    /// <summary>
+    /// Cung cấp Authorization Policy động cho các permission.
+    /// Hỗ trợ policy đơn lẻ và kết hợp mà không cần đăng ký trước.
+    /// </summary>
+    public class DynamicPermissionPolicyProvider : IAuthorizationPolicyProvider
+    {
+        private const string PermissionPrefix = "Permission_";
+        private readonly DefaultAuthorizationPolicyProvider _fallback;
+
+        public DynamicPermissionPolicyProvider(IOptions<AuthorizationOptions> options)
+        {
+            _fallback = new DefaultAuthorizationPolicyProvider(options);
+        }
+
+        public Task<AuthorizationPolicy> GetDefaultPolicyAsync()
+            => _fallback.GetDefaultPolicyAsync();
+
+        public Task<AuthorizationPolicy?> GetFallbackPolicyAsync()
+            => _fallback.GetFallbackPolicyAsync();
+
+        public Task<AuthorizationPolicy?> GetPolicyAsync(string policyName)
+        {
+            if (policyName.StartsWith(PermissionPrefix, StringComparison.OrdinalIgnoreCase))
+            {
+                var combinedKey = policyName[PermissionPrefix.Length..];
+                var permissions = ParsePermissionsFromKey(combinedKey);
+                if (permissions.Length > 0)
+                {
+                    var policy = new AuthorizationPolicyBuilder()
+                        .AddRequirements(new PermissionRequirement(permissions))
+                        .Build();
+                    return Task.FromResult<AuthorizationPolicy?>(policy);
+                }
+            }
+            return _fallback.GetPolicyAsync(policyName);
+        }
+
+        private static string[] ParsePermissionsFromKey(string combinedKey)
+        {
+            var segments = combinedKey.Split('_');
+            if (segments.Length % 2 != 0)
+                return new[] { combinedKey.Replace('_', ':') };
+            var result = new List<string>();
+            for (int i = 0; i < segments.Length; i += 2)
+                result.Add($"{segments[i]}:{segments[i + 1]}");
+            return result.ToArray();
         }
     }
 }
